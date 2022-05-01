@@ -10,7 +10,7 @@ import (
 author Lei Wang
 */
 
-// conn 数据库连接语句 protocol为协议名
+// conn 数据库连接语句 protocol为协议类型
 const conn = "username:password@protocol(IpAddress:Port)/NameOfDatabase?parameter1&parameter2"
 
 // dialect 数据库类型 例如MySQL、Oracle等

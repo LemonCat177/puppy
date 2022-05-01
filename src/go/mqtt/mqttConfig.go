@@ -12,7 +12,7 @@ import (
 author Lei Wang
 */
 
-// EMQServerProtocolAddressPort protocol为协议名 IpAddress为Mqtt服务器IP地址 Port为Mqtt服务器端口
+// EMQServerProtocolAddressPort protocol为协议类型 IpAddress为Mqtt服务器IP地址 Port为Mqtt服务器端口
 const EMQServerProtocolAddressPort = "protocol://IpAddress:Port"
 
 // ConnectHandler 成功连接到Mqtt服务器的回调函数
