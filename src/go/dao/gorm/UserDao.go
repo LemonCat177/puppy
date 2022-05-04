@@ -2,22 +2,24 @@ package gorm
 
 import (
 	"../../model"
-	"fmt"
-	"github.com/jinzhu/gorm"
 )
 
 /*
 author Lei Wang
 */
 
-func InsertExample(username string, password string) {
+func Register(username string, password string) uint {
 	db := InitDB()
-	defer func(db *gorm.DB) {
-		err := db.Close()
-		if err != nil {
-			fmt.Printf("err: %v\n", err)
-		}
-	}(db)
+	//本条语句可用下面被注释掉的匿名函数代替
+	defer CloseDB(db)
+	/*
+		defer func(db *gorm.DB) {
+			err := db.Close()
+			if err != nil {
+				fmt.Printf("err: %v\n", err)
+			}
+		}(db)
+	*/
 	u := model.User{
 		Username: username,
 		Password: password,
@@ -26,4 +28,5 @@ func InsertExample(username string, password string) {
 	db.AutoMigrate(&u)
 	//Create 插入一个数据
 	db.Create(&u)
+	return u.ID
 }
